@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Homepage</title>
+
+    <!-- Inline Styles for the Page -->
+    <style>
+        /* Color Theme */
+        :root {
+            --primary-color: #8f0d47; /* Deep Red */
+            --secondary-color: #f2f2f2; /* Light Gray */
+            --accent-color: #f1d087; /* New Soft Tan Color */
+            --text-color: #333333; /* Dark Gray */
+            --highlight-color: #5a5a5a; /* Medium Gray */
+        }
+
+        /* General Reset */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Flex & Grid Containers */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        /* Header Styling */
+        .header-container {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 15px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .logo {
+            width: 250px;
+            height: auto;
+        }
+
+        .school-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-left: 20px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--accent-color);
+            padding: 15px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .navbar-toggle {
+            display: none;
+            background-color: var(--accent-color);
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Logo Section Buttons */
+        .logo-buttons {
+            margin-top: 20px;
+        }
+
+        .logo-buttons button {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logo-buttons button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--accent-color);
+            padding: 15px;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.3rem;
+            margin: 20px 0;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .news-section {
+            width: 35%; 
+            padding: 20px;
+            background-color: white;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            height: 300px; 
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 60%;
+        }
+
+        .section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .section:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .school-description{
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-content img {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+
+     
+        @media (max-width: 768px) {
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: var(--primary-color);
+                padding: 10px;
+                margin-top: 10px;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-section, .main-content {
+                width: 100%;
+                margin: 0;
+            }
+
+            .photos-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="School Logo" class="logo">
+            <div class="school-name">Abc School</div>
+            <div class="logo-buttons">
+                <button>Apply</button>
+                <button>Contact Us</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="navbar-toggle">Menu</button>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Activities</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Swiper Photo Section -->
+    <section class="photos-section">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/600x400" alt="School Image 1" class="photo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/600x400" alt="School Image 2" class="photo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/600x400" alt="School Image 3" class="photo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/600x400" alt="School Image 4" class="photo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/600x400" alt="School Image 5" class="photo">
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <blockquote>"Inspiring the next generation of thinkers and leaders."</blockquote>
+    </section>
+
+    <!-- News and Main Content Section -->
+    <div class="content-wrapper">
+        <!-- News Section on the left -->
+        <section class="news-section">
+            <h2>News & Announcements</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 10px;">Admissions open: Apply now - 28 Nov</li>
+                <li>No upcoming activities</li>
+            </ul>
+        </section>
+<!-- Main Content on the right in 2x2 grid -->
+        <section class="main-content">
+            <div class="section">Admissions</div>
+            <div class="section">Academics</div>
+            <div class="section">Activities</div>
+            <div class="section">Gallery</div>
+        </section>
+    </div>
+
+    <!-- School Description Section -->
+    <section class="school-description">
+        <p>About</p>
+        <p>The my school library paragraph might talk about the countless hours spent amidst books, exploring worlds and ideas that expand your understanding and creativity.
+
+            As you grow, not only academically but also as a person, you learn to shoulder duties and responsibilities. Short paragraph on my school would highlight how it equips you to be a responsible citizen and a compassionate human being. Your teachers, with their immense care, patience, and dedication, play a crucial role in this journey.
+            
+            Beyond academics, events like a mock drill in my school paragraph demonstrate how your school prepares you for various life scenarios, ensuring safety and awareness. Every paragraph about school would speak volumes about the experiences and lessons learned within its walls.
+            
+            When you graduate, your reflections in my school paragraph in English would be filled with gratitude for the institution and its educators. These memories of your alma mater, the learnings, friendships, and experiences, stay with you, shaping who you become.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>123 School St, City, Country</div>
+            <div>Contact: info@school.com</div>
+            <div>
+                <p>Follow us:</p>
+                <img src="facebook-logo.png" alt="Facebook">
+                <img src="instagram-logo.png" alt="Instagram">
+                <img src="twitter-logo.png" alt="Twitter">
+            </div>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Vishal Bharti Senior Secondary School. All rights reserved.</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        
+        const swiper = new Swiper('.swiper-container', {
+            loop: true, 
+            slidesPerView: 1, 
+            spaceBetween: 10, 
+            autoplay: {
+                delay: 3000, 
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, 
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2, 
+                },
+                1024: {
+                    slidesPerView: 3, 
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
